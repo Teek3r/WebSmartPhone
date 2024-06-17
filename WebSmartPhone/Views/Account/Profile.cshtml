@@ -1,0 +1,29 @@
+﻿@model WebSmartPhone.Identity.AppUser
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="col-12 col-md-6 mb-3 mx-auto">
+    <h2>Thông tin cá nhân</h2>
+    <table class="table brandTable">
+        <tr>
+            <th scope="row">Tên đăng nhập</th>
+            <td>@Model.UserName</td>
+        </tr>
+        <tr>
+            <th scope="row">Email</th>
+            <td>@Model.Email</td>
+        </tr>
+        <tr>
+            <th scope="row">Địa chỉ</th>
+            <td>@Model.Address</td>
+        </tr>
+        <tr>
+            <th scope="row">Quê quán</th>
+            <td>@Model.City</td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>

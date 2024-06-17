@@ -1,0 +1,124 @@
+﻿@model List<WebSmartPhone.Models.Brand>
+@{
+    ViewBag.Title = "Index";
+}
+@*<a id="btnGetBrands" class="btn btn-dark" role="button">Lấy hãng</a>*@
+<div class="col-12 col-md-6 mb-3 mx-auto">
+    <button class="btn btn-dark" id="btnGetBrands" >Lấy danh sách hãng</button>
+    <a class="btn btn-dark" href="/Admin/Hang/Create" role="button">Thêm mới hãng</a>
+    <table id="brandTable" class="table brandTable">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Sửa</th>
+            <th scope="col">Xóa</th>
+        </tr>
+        @*</thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">@item.BrandId</th>
+                    <td>@item.Name</td>
+                    <td>
+                        <a href="/Admin/Hang/Edit/@item.BrandId">
+                            <img src="~/Img/pen.png" alt="Image" width="20px">
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>*@
+    </table>
+</div>
+
+@*<div class="card-group">
+    <div class="card">
+        <div class="card-header">
+            Thêm mới
+        </div>
+        <div class="card-body">
+            <form>
+                <div class="col-12">
+                    <label for="Name">Tên hãng</label>
+                    <input type="text" class="form-control"
+                           placeholder="Hãng" id="txtBrandName" />
+                </div>
+            </form>
+        </div>
+        <div class="card-footer">
+            <button type="button" id="btnInsert" class="btn btn-info">Lưu</button>
+        </div>
+    </div>
+</div>*@
+
+
+
+<script>
+    $('#btnGetBrands').click(() => {
+        $.ajax({
+            type: 'GET',
+            url: '/api/brands',
+            success: (reponses) => {
+                for (var i = 0; i <= reponses.length; i++) {
+                    const brandRow = reponses[i];
+                    const strHTML = '<tr><td>' + brandRow.BrandId +
+                        '</td><td>' + brandRow.Name +
+                        '</td><td>' + '<a href="/Admin/Hang/Edit/' + brandRow.BrandId + '"><img src="/Img/pen.png" alt="Image" width="20px"></a>' +
+                        '</td><td>' + '<a href="/Admin/Hang/Delete/' + brandRow.BrandId + '"><img src="/Img/delete.png" alt="Image" width="20px"></a>' +
+                        '</td></tr > ';
+
+                    $('#brandTable').append(strHTML);
+                }
+            },
+            error: (err) => { console.log(err); }
+        });
+    });
+</script>
+@*<script>
+    $(document).on('click', '.btnUpdateBrand', (event) => {
+        const brid = $(event.target).attr('data-brandid');
+        $.ajax({
+            type: 'GET',
+            url: '/api/brand?id${brid}',
+            success: () => {
+                $('#txtBrandIdUpdate').val(reponse.BrandID);
+                $('#txtBrandNameUpdate').val(reponse.Name);
+            },
+            error: (err) => { console.log(err); }
+        });
+    });
+
+    function reloadPage() {
+        window.location.reload();
+    }
+    $('#btnInsert').click(() => {
+        const brandName = $('#txtBrandName').val();
+        $.ajax({
+            type: 'POST',
+            url: '/api/brands',
+            data: { 'Name': brandName },
+            success: () => {
+                reloadPage();
+            },
+            error: (err) => { console.log(err); }
+        });
+    });
+
+    $('#btnUpdate').click(() => {
+        const brandId = $('#txtBrandIdUpdate').val();
+        const brandName = $('#txtBrandNameUpdate').val();
+        $.ajax({
+            type: 'PUT',
+            url: '/api/brands',
+            data: {
+                'BrandID': brandId,
+                'Name': brandName
+            },
+            success: () => {
+                reloadPage();
+            },
+            error: (err) => { console.log(err); }
+        });
+    });
+
+</script>*@

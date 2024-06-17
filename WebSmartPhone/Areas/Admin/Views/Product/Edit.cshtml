@@ -1,0 +1,33 @@
+﻿@model WebSmartPhone.Models.Product
+<div style="width: 800px;" class="mx-auto">
+    <form action="/Admin/Product/Edit" method="post">
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="Name" class="form-label">Name</label>
+                <input type="text" id="Name" name="Name" placeholder="Name" class="form-control" value="@Model.Name" />
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="Price" class="form-label">Price</label>
+                <input type="text" id="Price" name="Price" placeholder="Price" class="form-control" value="@Model.Price" />
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="Img_URL" class="form-label">Img_URL</label>
+                <input type="text" id="Img_URL" name="Img_URL" placeholder="Img_URL" class="form-control" value="@Model.Img_URL" />
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="Description" class="form-label">Description</label>
+                <input type="text" id="Description" name="Description" placeholder="Description" class="form-control" value="@Model.Description" />
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="BrandId" class="form-label">Brand</label>
+                <input type="text" id="BrandId" name="BrandId" placeholder="BrandId" class="form-control" value="@Model.BrandId" />
+            </div>
+            <div class="col-12 mb-3">
+                <button type="submit" class="btn btn-dark">Sửa</button>
+                <a href="/Admin/Product/AddDetail/@Model.Id" class="btn btn-light">Thêm chi tiết sản phẩm</a>
+                <a href="/Admin/Product/Index/" class="btn btn-light">Trở lại trang chủ</a>
+            </div>
+        </div>
+    </form>
+</div>

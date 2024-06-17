@@ -1,0 +1,73 @@
+﻿@model List<WebSmartPhone.Models.Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+@{
+    int next = ViewBag.Page + 1;
+    int pre = ViewBag.Page - 1;
+    if (next > ViewBag.NoOfPages)
+    {
+        next = ViewBag.NoOfPages;
+    }
+    if (pre < 1)
+    {
+        pre = 1;
+    }
+}
+<div class="p-4">
+    <h2>Tất cả sản phẩm</h2>
+</div>
+<div class="row m-0">
+    <div class="col-md-3">
+        <div class="dropdown">
+            <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                Sắp xếp theo giá
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <li><a class="dropdown-item" href="/Product/Index?Search=@ViewBag.Search&Sort=Price&Icon=fa fa-sort-up&page=1">Tăng dần</a></li>
+                <li><a class="dropdown-item" href="/Product/Index?Search=@ViewBag.Search&Sort=Price&Icon=fa fa-sort-down&page=1">Giảm dần</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="dropdown">
+            <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                Sắp xếp sản phẩm (a-z)
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <li><a class="dropdown-item" href="/Product/Index?Search=@ViewBag.Search&Sort=Name&Icon=fa fa-sort-up&page=1">Tăng dần</a></li>
+                <li><a class="dropdown-item" href="/Product/Index?Search=@ViewBag.Search&Sort=Name&Icon=fa fa-sort-down&page=1">Giảm dần</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container mx-auto">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-3 col-md-4 col-6">
+                    <div class="card border-0" style="width: 200px; height: 400px">
+                        <img src="@item.Img_URL" class="card-img-top rounded">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Name</h5>
+                            <p class="card-text"><strong>@item.Price.ToString("N0")đ</strong></p>
+                            <a href="/Product/Detail/@item.Id" class="btn btn-dark">Mua ngay</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+</div>
+<div class="container d-flex justify-content-center">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link text-dark" href="/Product/Index?Search=@ViewBag.Search&Sort=@ViewBag.Sort&Icon=@ViewBag.Icon&page=@pre">Previous</a></li>
+            @for (int i = 0; i < ViewBag.NoOfPages; i++)
+            {
+                <li class="page-item"><a class="page-link text-dark" href="/Product/Index?Search=@ViewBag.Search&Sort=@ViewBag.Sort&Icon=@ViewBag.Icon&page=@(i + 1)">@(i + 1)</a></li>
+            }
+            <li class="page-item"><a class="page-link text-dark" href="/Product/Index?Search=@ViewBag.Search&Sort=@ViewBag.Sort&Icon=@ViewBag.Icon&page=@next">Next</a></li>
+        </ul>
+    </nav>
+</div>

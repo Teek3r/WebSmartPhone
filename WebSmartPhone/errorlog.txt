@@ -1,0 +1,70 @@
+Message: Error
+Message: The view 'Index' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Areas/Admin/Views/Brand/Index.aspx
+~/Areas/Admin/Views/Brand/Index.ascx
+~/Areas/Admin/Views/Shared/Index.aspx
+~/Areas/Admin/Views/Shared/Index.ascx
+~/Views/Brand/Index.aspx
+~/Views/Brand/Index.ascx
+~/Views/Shared/Index.aspx
+~/Views/Shared/Index.ascx
+~/Areas/Admin/Views/Brand/Index.cshtml
+~/Areas/Admin/Views/Brand/Index.vbhtml
+~/Areas/Admin/Views/Shared/Index.cshtml
+~/Areas/Admin/Views/Shared/Index.vbhtml
+~/Views/Brand/Index.cshtml
+~/Views/Brand/Index.vbhtml
+~/Views/Shared/Index.cshtml
+~/Views/Shared/Index.vbhtml
+Message: The view 'Index' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Areas/Admin/Views/Brand/Index.aspx
+~/Areas/Admin/Views/Brand/Index.ascx
+~/Areas/Admin/Views/Shared/Index.aspx
+~/Areas/Admin/Views/Shared/Index.ascx
+~/Views/Brand/Index.aspx
+~/Views/Brand/Index.ascx
+~/Views/Shared/Index.aspx
+~/Views/Shared/Index.ascx
+~/Areas/Admin/Views/Brand/Index.cshtml
+~/Areas/Admin/Views/Brand/Index.vbhtml
+~/Areas/Admin/Views/Shared/Index.cshtml
+~/Areas/Admin/Views/Shared/Index.vbhtml
+~/Views/Brand/Index.cshtml
+~/Views/Brand/Index.vbhtml
+~/Views/Shared/Index.cshtml
+~/Views/Shared/Index.vbhtml
+Message: The view 'Index' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Areas/Admin/Views/Brand/Index.aspx
+~/Areas/Admin/Views/Brand/Index.ascx
+~/Areas/Admin/Views/Shared/Index.aspx
+~/Areas/Admin/Views/Shared/Index.ascx
+~/Views/Brand/Index.aspx
+~/Views/Brand/Index.ascx
+~/Views/Shared/Index.aspx
+~/Views/Shared/Index.ascx
+~/Areas/Admin/Views/Brand/Index.cshtml
+~/Areas/Admin/Views/Brand/Index.vbhtml
+~/Areas/Admin/Views/Shared/Index.cshtml
+~/Areas/Admin/Views/Shared/Index.vbhtml
+~/Views/Brand/Index.cshtml
+~/Views/Brand/Index.vbhtml
+~/Views/Shared/Index.cshtml
+~/Views/Shared/Index.vbhtml
+Message: Value cannot be null.
+Parameter name: items
+Message: D:\WEB\WebSmartPhone\WebSmartPhone\Views\Account\Profile.cshtml(18): error CS1579: foreach statement cannot operate on variables of type 'AppUser' because 'AppUser' does not contain a public instance definition for 'GetEnumerator'
+Message: D:\WEB\WebSmartPhone\WebSmartPhone\Views\Account\Profile.cshtml(18): error CS1579: foreach statement cannot operate on variables of type 'AppUser' because 'AppUser' does not contain a public instance definition for 'GetEnumerator'
+Message: D:\WEB\WebSmartPhone\WebSmartPhone\Views\Account\Profile.cshtml(18): error CS1579: foreach statement cannot operate on variables of type 'AppUser' because 'AppUser' does not contain a public instance definition for 'GetEnumerator'
+Message: D:\WEB\WebSmartPhone\WebSmartPhone\Views\Account\Profile.cshtml(18): error CS1579: foreach statement cannot operate on variables of type 'AppUser' because 'AppUser' does not contain a public instance definition for 'GetEnumerator'
+Message: D:\WEB\WebSmartPhone\WebSmartPhone\Views\Account\Profile.cshtml(18): error CS1579: foreach statement cannot operate on variables of type 'AppUser' because 'AppUser' does not contain a public instance definition for 'GetEnumerator'
+Message: Value cannot be null.
+Parameter name: entity
+Message: Value cannot be null.
+Parameter name: entity
+Message: Value cannot be null.
+Parameter name: entity
+Message: Object reference not set to an instance of an object.
+Message: Value cannot be null.
+Parameter name: entity
+Message: Value cannot be null.
+Parameter name: entity

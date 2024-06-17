@@ -1,0 +1,49 @@
+﻿@model WebSmartPhone.Models.Product
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+<div class="col mx-auto" style="width:1000px">
+    <div class="row">
+        <div class="col">
+            <h2 class="font-weight-bold text-dark">@Model.Name</h2>
+            <hr>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col">
+            @if (@Model.Img_URL == "")
+            {
+
+                <img class="img-fluid" src="~/Img/noimage.png">
+            }
+            else
+            {
+                <img class="img-fluid" src="@Model.Img_URL">
+            }
+        </div>
+        <div class="col">
+            <div class="row">
+                <h3 class="font-weight-bold text-danger">@Model.Price.ToString("N0")₫</h3>
+            </div>
+            <div class="row">
+                <table class="table">
+                    <tbody>
+                        @foreach (var item in ViewBag.proDetail)
+                        {
+                            <div>
+                                <tr>
+                                    <th scope="row">@item.Name</th>
+                                    <td>@item.Description</td>
+                                </tr>
+                            </div>
+                        }
+                     </tbody>
+                        </table>
+                    </div>
+            <div class="row align-items-end">
+                <a href="/Cart/Add/@Model.Id" class="btn btn-primary">Thêm giỏ hàng</a>            </div>
+        </div>
+    </div>
+</div>

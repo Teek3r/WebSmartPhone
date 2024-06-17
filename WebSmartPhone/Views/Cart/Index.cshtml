@@ -1,0 +1,70 @@
+﻿@model List<WebSmartPhone.Models.Cart>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<table class="table table-light table-hover">
+    <tr>
+        <th>#ID</th>
+        <th>Tên</th>
+        <th>Số lượng</th>
+        <th>Tổng tiền</th>
+    </tr>
+    @{
+        int i = 1;
+        int totPrice = 0;
+    }
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@i</td>
+            <td>
+                <a href="/Product/Detail/@item.Id">
+                    @item.Product.Name
+                </a>
+            </td>
+            @*<td>@Html.DisplayFor(model => item.Quantity)</td>*@
+            <td>
+                @using (Html.BeginForm("UpdateQuantity", "Cart", FormMethod.Get))
+                {
+                    <input type="number" name="quan" value="@item.Quantity" min="1" style="width: 60px;" />
+                    <input type="hidden" name="proid" value="@item.Id" />
+                    //<input type="submit" value="Update" class="btn btn-dark" />
+                    <button value="Update" type="submit" class="btn"> <img src="~/Img/refresh.png" alt="Image" width="20px"></button>
+                }
+            </td>
+            <td style="color: red">
+                @{
+                    int Price = item.Quantity * item.Product.Price;
+                    totPrice += Price;
+                    i++;
+                }
+                @Price.ToString("N0") VNĐ
+            </td>
+            <td>
+                <a href="/Cart/Remove/@item.IdCart">
+                    <img src="~/Img/close.png" alt="Image" width="20px">
+                </a>
+            </td>
+        </tr>
+    }
+    <tr>
+        <td colspan="3" class="text-center fw-bold">Thành tiền</td>
+        <td style="color: tomato">@totPrice.ToString("N0") ₫</td>
+    </tr>
+
+</table>
+
+<div>
+    <div class="col">
+        <p>
+            <a href="/Product" class="btn btn-warning">Tiếp tục mua hàng</a>
+        </p>
+    </div>
+    <div class="col" >
+    <p>
+        <a href="/Cart/Pay" class="btn btn-success">Thanh toán</a>
+    </p>
+    </div>
+</div>

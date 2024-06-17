@@ -1,0 +1,36 @@
+﻿@model List<WebSmartPhone.Identity.AppUser>
+@{
+    ViewBag.Title = "Index";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Tên</th>
+            <th scope="col">Ngày sinh</th>
+            <th scope="col">Quê quán</th>
+            <th scope="col">Địa chỉ</th>
+            <th scope="col">Email</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.UserName</th>
+                <td>@item.BirthDay</td>
+                <td>@item.City</td>
+                <td>@item.Address</td>
+                <td>@item.Email</td>
+                <td>
+                    <a href="/Admin/User/Delete/@item.Id">
+                        <img src="~/Img/delete.png" alt="Image" width="20px">
+                    </a>
+                </td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>

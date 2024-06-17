@@ -1,0 +1,42 @@
+﻿@model WebSmartPhone.ViewModel.LoginVM
+
+@{
+    
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="col-12 col-md-6 mb-3 mx-auto">
+    <h2>Đăng nhập</h2>
+    @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+    {        <div class="row mx-auto">
+            <div class="col-md-12">
+                @Html.LabelFor(r => r.UserName, "Tên đăng nhập")
+                @Html.TextBoxFor(r => r.UserName, new
+                {
+                    placeholder =
+                "Username",
+                    @class = "form-control"
+                })
+                @Html.ValidationMessageFor(r => r.UserName)
+            </div>
+            <div class="col-md-12">
+                @Html.LabelFor(r => r.Password, "Mật khẩu")
+                @Html.PasswordFor(r => r.Password, new
+                {
+                    placeholder =
+                "Password",
+                    @class = "form-control"
+                })
+                @Html.ValidationMessageFor(r => r.Password)
+            </div>
+            <div class="col-md-12>
+                @Html.ValidationSummary()
+            </div>
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-dark mx-auto">Login</button>
+            </div>
+        </div>
+
+    }
+</div>

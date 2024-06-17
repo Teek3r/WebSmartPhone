@@ -1,0 +1,27 @@
+﻿@model WebSmartPhone.Models.ProductDetail
+@{
+    ViewBag.Title = "AddDetail";
+}
+<div class="container mx-auto">
+    <div class="row">
+        @using (Html.BeginForm("AddDetail", "Product", new { area = "Admin" }
+        , FormMethod.Post, new { enctype = "multipart/dorm-data" }))
+        {
+            <div class="col-12 mb-3">
+                @Html.LabelFor(r => r.Name, "Name")
+                @Html.TextBoxFor(r => r.Name, new { @class = "form-control", placeholder = "Name" })
+            </div>
+            <div class="col-12 mb-3">
+                @Html.LabelFor(r => r.Description, "Description")
+                @Html.TextBoxFor(r => r.Description, new { @class = "form-control", placeholder = "Description" })
+            </div>
+            <div class="col-12 mb-3">
+                <input type="hidden" name="Id" value="@ViewBag.Id" />
+            </div>
+            <div class="col-12 mb-3">
+                <button type="submit" class="btn btn-outline-primary">Create</button>
+                @Html.ActionLink("Cancel", "Index", "Product", new { @class = "btn btn-outline-secondary" })
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,22 @@
+﻿@model WebSmartPhone.Models.Brand
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+<div style="width: 800px;" class="mx-auto">
+    <form action="/Admin/Hang/Edit" method="post">
+        <input type="hidden" name="BrandId" value="@Model.BrandId" />
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="Name" class="form-label">Name</label>
+                <input type="text" id="Name" name="Name" placeholder="Name" class="form-control" value="@Model.Name" />
+            </div>
+            <div class="col-12 mb-3">
+                <button type="submit" class="btn btn-dark">Sửa</button>
+                <a href="/Admin/Index/" class="btn btn-light">Trở lại trang chủ</a>
+            </div>
+        </div>
+    </form>
+</div>

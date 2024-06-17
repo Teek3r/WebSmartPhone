@@ -1,0 +1,98 @@
+﻿@model List<WebSmartPhone.Models.Product>
+@{
+    int next = ViewBag.Page + 1;
+    int pre = ViewBag.Page - 1;
+    if (next > ViewBag.NoOfPages)
+    {
+        next = ViewBag.NoOfPages;
+    }
+    if (pre < 1)
+    {
+        pre = 1;
+    }
+}
+<div class="p-4">
+    <h2>Tất cả sản phẩm</h2>
+</div>
+<div class="row m-0">
+    <div class="col-md-3">
+        <div class="dropdown">
+            <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                Sắp xếp theo giá
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <li><a class="dropdown-item" href="/Admin/Product/Index?Search=@ViewBag.Search&Sort=Price&Icon=fa fa-sort-up&page=1">Tăng dần</a></li>
+                <li><a class="dropdown-item" href="/Admin/Product/Index?Search=@ViewBag.Search&Sort=Price&Icon=fa fa-sort-down&page=1">Giảm dần</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="dropdown">
+            <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                Sắp xếp sản phẩm (a-z)
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <li><a class="dropdown-item" href="/Admin/Product/Index?Search=@ViewBag.Search&Sort=Name&Icon=fa fa-sort-up&page=1">Tăng dần</a></li>
+                <li><a class="dropdown-item" href="/Admin/Product/Index?Search=@ViewBag.Search&Sort=Name&Icon=fa fa-sort-down&page=1">Giảm dần</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    <div class="col-12 col-md-6 mb-3 mx-auto">
+        <a class="btn btn-dark" href="/Admin/Product/Create" role="button">Thêm mới sản phẩm</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Brand</th>
+                    <th scope="col">Sửa</th>
+                    <th scope="col">Xóa</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th scope="row">@item.Id</th>
+                        <td>@item.Name</td>
+                        <td>@item.Price.ToString("N0")₫</td>
+                        <td>
+                            <img width="100px"
+                                 src="@item.Img_URL" />
+                        </td>
+                        <td>@item.Description</td>
+                        <td>@item.Brand.Name</td>
+                        <td>
+                            <a href="/Admin/Product/Edit/@item.Id">
+                                <img src="~/Img/pen.png" alt="Image"  width="20px">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="/Admin/Product/Delete/@item.Id">
+                                <img src="~/Img/delete.png" alt="Image" width="20px">
+                            </a>
+                        </td>
+
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+<div class="container d-flex justify-content-center">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link text-dark" href="/Admin/Product/Index?Search=@ViewBag.Search&Sort=@ViewBag.Sort&Icon=@ViewBag.Icon&page=@pre">Previous</a></li>
+            @for (int i = 0; i < ViewBag.NoOfPages; i++)
+            {
+                <li class="page-item"><a class="page-link text-dark" href="/Admin/Product/Index?Search=@ViewBag.Search&Sort=@ViewBag.Sort&Icon=@ViewBag.Icon&page=@(i + 1)">@(i + 1)</a></li>
+            }
+            <li class="page-item"><a class="page-link text-dark" href="/Admin/Product/Index?Search=@ViewBag.Search&Sort=@ViewBag.Sort&Icon=@ViewBag.Icon&page=@next">Next</a></li>
+        </ul>
+    </nav>
+</div>
